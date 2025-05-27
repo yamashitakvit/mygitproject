@@ -1,10 +1,9 @@
 version: 0.2
-
 phases:
   build:
     commands:
-      - echo "This will fail..."
-      - invalid-command-here
+      - echo "BUILD FAILED"
+      - exit 1  # 明示的にビルドを失敗させる
 artifacts:
   files:
     - output.zip
