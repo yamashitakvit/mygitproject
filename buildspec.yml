@@ -3,8 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Zipping files..."
-      - zip -r output.zip ./
+      - echo "Intentionally breaking the build..."
+      - invalid_command_xyz  # 存在しないコマンドで失敗！
 
 artifacts:
   files:
