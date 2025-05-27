@@ -1,9 +1,11 @@
 version: 0.2
+
 phases:
   build:
     commands:
-      - echo "BUILD FAILED"
-      - exit 1  # 明示的にビルドを失敗させる
+      - echo "Zipping files..."
+      - zip -r output.zip ./
+
 artifacts:
   files:
     - output.zip
