@@ -3,8 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Zipping files..."
-      - zip -r output.zip ./nonexistent-folder || echo "BUILD FAILED"
+      - echo "This will fail..."
+      - invalid-command-here
 artifacts:
   files:
     - output.zip
