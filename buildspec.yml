@@ -3,8 +3,11 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Zipping files..."
-      - zip -r output.zip ./
+      - echo "Preparing output directory..."
+      - mkdir -p output
+      - cp index.html output/
+      - echo "Zipping output files..."
+      - zip -r output.zip output/
 
 artifacts:
   files:
