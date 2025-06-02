@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Preparing output directory... (edited for SNS test)"
+      - echo "Preparing output directory... (edited for SNS test111)"
       - mkdir -p output
       - cp index.html output/
       - echo "Zipping output files..."
