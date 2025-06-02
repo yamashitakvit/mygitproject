@@ -3,9 +3,25 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Zipping files..."
-      - zip -r output.zip ./
+      - echo "Preparing output directory..."
+      - mkdir -p output
+      - cp index.html output/
+      - echo "Zipping output files..."
+      - zip -r output.zip output/
 
 artifacts:
   files:
     - output.zip
+  post_build:
+    commands:
+      - echo "Deploying CloudFormation template..."
+      - aws cloudformation deploy \
+          --template-file main.yml \
+          --stack-name my-cicd-dev \
+          --parameter-overrides \
+              GitHubToken=$GITHUB_TOKEN \
+              GitHubOwner=yamashitakvit \
+              GitHubRepo=mygitproject \
+              GitHubBranch=main \
+              EnvironmentType=dev \
+          --capabilities CAPABILITY_NAMED_IAM
