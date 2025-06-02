@@ -12,3 +12,16 @@ phases:
 artifacts:
   files:
     - output.zip
+  post_build:
+    commands:
+      - echo "Deploying CloudFormation template..."
+      - aws cloudformation deploy \
+          --template-file main.yml \
+          --stack-name my-cicd-dev \
+          --parameter-overrides \
+              GitHubToken=$GITHUB_TOKEN \
+              GitHubOwner=yamashitakvit \
+              GitHubRepo=mygitproject \
+              GitHubBranch=main \
+              EnvironmentType=dev \
+          --capabilities CAPABILITY_NAMED_IAM
