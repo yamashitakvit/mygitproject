@@ -8,7 +8,7 @@ phases:
       - cp index.html output/
       - echo "Zipping output files..."
       - zip -r output.zip output/
-
+# このコメントはSNS通知のテスト用です
 artifacts:
   files:
     - output.zip
