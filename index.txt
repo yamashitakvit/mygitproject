@@ -1,3 +1,3 @@
 Hello AWS CloudShell
-test
+test0604
 開発追記
